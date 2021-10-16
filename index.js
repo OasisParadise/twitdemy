@@ -20,7 +20,8 @@ searchKeywordForm.addEventListener('submit', async (event) => {
     courseContainerElement.innerHTML = "";
     let searchInput = document.getElementById("keywords");
 
-    let newUrl = `${searchKeywordForm.action}?keywords=${searchInput.value}`;
+    let baseUrl = location.protocol + '//' + location.host + location.pathname;
+    let newUrl = `${baseUrl}?keywords=${searchInput.value}`;
     history.pushState(null, null, newUrl);
 
     await fetchDataByKeywords(searchInput.value);
